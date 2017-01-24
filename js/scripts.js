@@ -7,7 +7,10 @@ function Tickets(name, age, time) {
 }
 
 Tickets.prototype.outputFormat = function() {
-  return this.myName + " " + this.age;
+  if (this.age < 17 || this.age >= 65) {
+    ticketPrice -= 2
+  }
+  return ticketPrice
 }
 
 
@@ -22,8 +25,8 @@ $(document).ready(function() {
     var timeInput = $("input:radio[name=movieTime]:checked").val();
 
 
-    var newUser = new Tickets(nameInput,ageInput, timeInput)
+    var newUser = new Tickets(nameInput, ageInput, timeInput)
 
-    $(".price").text(ticketPrice);
+    $(".price").text(newUser.outputFormat());
   })
 })
