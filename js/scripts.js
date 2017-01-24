@@ -72,6 +72,7 @@ $(document).ready(function() {
 
     var newUser = new Tickets(nameInput, ageInput, timeInput)
 
+    $("#result").show()
     $(".price").text(newUser.outputFormat());
 
     newUser.reset1();
