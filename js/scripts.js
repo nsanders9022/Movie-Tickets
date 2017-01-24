@@ -1,9 +1,11 @@
+//business logic
+  //constructor
 function Tickets(name, age, time) {
   this.myName = name;
   this.age = age;
   this.time = time;
 }
-
+  //prototypes
 Tickets.prototype.outputFormat = function() {
   var ticketPrice = 12;
   if (this.age < 17 || this.age >= 65) {
@@ -24,16 +26,19 @@ Tickets.prototype.reset1 = function() {
   $('input[name=movieTime').prop('checked',false);
 };
 
+
+//user logic
 $(document).ready(function() {
 
+  //hides divs containing specific movie times
   $("#lionKing").css('display','none');
   $("#laLaLand").css('display','none');
   $("#goneWind").css('display','none');
   $("#moonlight").css('display','none');
 
+
+  //function to display time when a certain movie is selected
   $("input:radio[name=movieName]").change(function(){
-    // $('input[name="item_meta[988]"']
-    // $("input:radio[name=movieName]:checked").val()
 
     var val1 = $('input:radio[name=movieName]:checked').val();
 
@@ -46,31 +51,30 @@ $(document).ready(function() {
     } else if (val1 === "4") {
       $("#moonlight").css('display', 'block')
     }
+  });
 
+  //hides div containing age input field
+  $(".age").css('display', 'none');
+
+  //function to display age when a time is selected
+  $("input:radio[name=movieTime]").change(function() {
+    $(".age").css('display', 'block');
   });
 
 
+  //submit function
+  $("#movie-tickets").submit(function(event) {
+    event.preventDefault();
 
+    var nameInput = parseInt($("input:radio[name=movieName]:checked").val());
+    var ageInput = parseInt($("#age").val());
+    var timeInput = parseInt($("input:radio[name=movieTime]:checked").val());
 
+    var newUser = new Tickets(nameInput, ageInput, timeInput)
 
-$("#movie-tickets").submit(function(event) {
-  event.preventDefault();
+    $(".price").text(newUser.outputFormat());
 
+    newUser.reset1();
 
-
-  var nameInput = parseInt($("input:radio[name=movieName]:checked").val());
-  var ageInput = parseInt($("#age").val());
-  var timeInput = parseInt($("input:radio[name=movieTime]:checked").val());
-
-
-
-  var newUser = new Tickets(nameInput, ageInput, timeInput)
-
-  $(".price").text(newUser.outputFormat());
-
-  newUser.reset1();
-
-  // newUser = newUser.reset1();
-
-});
+  });
 });
