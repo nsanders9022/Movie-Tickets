@@ -13,18 +13,68 @@
         <form id="movie-tickets">
 
           <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" class="form-control" type="text">
+            <div class="radio1">
+              <h3>Select your option please:</h3>
+              <label>
+                <input type="radio" name="movieName" value="1" class="radio1">
+                Lion King
+              </label>
+            </div>
+            <div class="radio2">
+              <label>
+                <input type="radio" name="movieName" value="2">
+                La La Land
+              </label>
+            </div>
+            <div class="radio3">
+              <label>
+                <input type="radio" name="movieName" value="1">
+                Gone with the Wind
+              </label>
+            </div>
+            <div class="radio4">
+              <label>
+                <input type="radio" name="movieName" value="2">
+                Moonlight
+              </label>
+            </div>
           </div>
 
-          <button type="submit">Purchase</button>
+          <div id="times">
+            <div class="radio">
+              <h3>Select your time please:</h3>
+              <label>
+                <input type="radio" name="movieTime" value="1">
+                10:00am
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="movieTime" value="1">
+                4:00pm
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="movieTime" value="2">
+                8:30pm
+              </label>
+            </div>
+          </div>
 
-        </form>
+          <div class>
+            <label for="age">Age</label>
+            <input id="age" type="text">
+          </div>
 
-        <div id="result">
-          <h3>Thank you, <span class="name"></span></h3>
         </div>
 
+        <button type="submit">See price</button>
+
+      </form>
+
+      <div id="result">
+        <h3>$ <span class="price"></span></h3>
       </div>
 
     </div>
