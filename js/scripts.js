@@ -7,6 +7,7 @@ function Tickets(name, age, time) {
 }
 
 Tickets.prototype.outputFormat = function() {
+  ticketPrice = 12;
   if (this.age < 17 || this.age >= 65) {
     ticketPrice -= 2;
   };
@@ -20,10 +21,10 @@ Tickets.prototype.outputFormat = function() {
 };
 
 Tickets.prototype.reset1 = function() {
-  this.myName = "";
-  this.age = "";
-  this.time = "";
-}
+  $('input[name=movieName]').prop('checked',false);
+  $("#age").val("");
+  $('input[name=movieTime').prop('checked',false);
+};
 
 $(document).ready(function() {
 
@@ -40,12 +41,9 @@ $(document).ready(function() {
 
     $(".price").text(newUser.outputFormat());
 
-    $('input[name=movieName]').prop('checked',false);
-    $("#age").val("");
-    $('input[name=movieTime').prop('checked',false);
-    
-    ticketPrice = 12;
+    newUser.reset1();
+
     // newUser = newUser.reset1();
 
-  })
-})
+  });
+});
